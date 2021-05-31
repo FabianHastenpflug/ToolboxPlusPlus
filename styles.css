@@ -1,0 +1,183 @@
+ * {
+            /* Styling für Div-Boxen */
+            box-sizing: border-box;
+        }
+        
+        .box {
+            /* Styling für Div-Boxen */
+            float: left;
+            width: 500px;
+            height: 400px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        
+        .clearfix::after {
+            /* Styling für Div-Boxen */
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        
+        body {
+            background: #242424;
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+            -ms-user-select: None;
+            -moz-user-select: None;
+            -webkit-user-select: None;
+            color: #0F1D26;
+        }
+        
+        .clearfix {
+            max-width: 1500px;
+            margin: auto;
+        }
+        
+        .title {
+            /* Überschriften der DIV-Boxen */
+            font-size: 30px;
+            font-weight: bold;
+            color: #024052c2;
+        }
+        
+        #counterdiv {
+            /* Unsichtbares DIV des Counterstrings. */
+            height: 80%;
+            width: 100%;
+            position: relative;
+            right: 0;
+            top: 0;
+        }
+        
+        #priver {
+            /* Unsichtbares DIV des Riverstrings. */
+            height: 80%;
+            width: 100%;
+            position: relative;
+            right: 0;
+            top: 0;
+            margin: 50px 0px 0px 0px;
+            font-size: 100px;
+            color: #024052c2;
+        }
+
+        #plettercounter {
+            font-size: 15px;
+        }
+        
+        #i {
+            /* letzte Zahl des Counter-Strings (blau und animiert) */
+            color: grey;
+            font-weight: bold;
+            -webkit-animation: mymove 5s infinite;
+            /* Chrome, Safari, Opera */
+            animation: mymove 5s infinite;
+        }
+        
+        #i-1 {
+            /* Vorletzte Zahl des Counter-Strings (auch blau und animiert) */
+            color: grey;
+            font-weight: bold;
+            -webkit-animation: mymove2 5s infinite;
+            /* Chrome, Safari, Opera */
+            animation: mymove2 5s infinite;
+        }
+        
+        @-webkit-keyframes mymove {
+            /* Für die Animation der letzten beiden Zahlen (i und i-1) */
+            50% {
+                color: #0398c2;
+            }
+        }
+        
+        @-webkit-keyframes mymove2 {
+            50% {
+                color: #62919e;
+            }
+        }
+        
+        input {
+            width: 25%;
+            padding: 0px 20px;
+            box-sizing: border-box;
+            border: none;
+            background-color: #015a73a4;
+            color: #fff;
+            font-size: 25px;
+        }
+
+        
+        #inputnoter,
+        #inputcalcer,
+        #inputcolor,
+        #inputnamer,
+        #inputwordcounter,
+        #inputlettercounter {
+            /* Breitere Input-Felder */
+            width: 70%;
+        }
+
+        #inputThreer100 {
+            width: 97.4%;
+        }
+
+        .threer {
+            width: 48%;
+        }
+
+         ::placeholder {
+            color: #fff;
+            opacity: 1;
+            /* Firefox */
+        }
+        
+        button {
+            padding: 0px 20px;
+            box-sizing: border-box;
+            border: none;
+            background-color: #015a73;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .rgbbarout {
+            border-radius: 13px;
+            /* (height of inner div) / 2 + padding */
+            padding: 3px;
+        }
+        
+        .rgbbarin {
+            /* Adjust with JavaScript */
+            height: 20px;
+            border-radius: 10px;
+            width: 0%;
+        }
+
+        .timerbarout {
+            border-radius: 13px;
+            /* (height of inner div) / 2 + padding */
+            padding: 3px;
+        }
+        
+        .timerbarin {
+            /* Adjust with JavaScript */
+            height: 20px;
+            border-radius: 10px;
+            width: 0%;
+        }
+
+        #redbar, #timerbar {
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        #greenbar {
+            background-color: rgba(0, 128, 0, 0.5);
+        }
+        #bluebar {
+            background-color: rgba(0, 0, 255, 0.5);
+        }

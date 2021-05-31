@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Toolbox++</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="Scripts/timer.js"></script>
+    <script src="Scripts/noter.js"></script>
+    <script src="Scripts/counter.js"></script>
+    <script src="Scripts/dicer.js"></script>
+    <script src="Scripts/getrandom.js"></script>
+    <script src="Scripts/calcer.js"></script>
+    <script src="Scripts/color.js"></script>
+    <script src="Scripts/bmi.js"></script>
+    <script src="Scripts/namer.js"></script>
+    <script src="Scripts/river.js"></script>
+    <script src="Scripts/ipsumer.js"></script>
+    <script src="Scripts/wordcounter.js"></script>
+    <script src="Scripts/ruleofthree.js"></script>
+    <script src="Scripts/lettercounter.js"></script>
+    <script src="Scripts/calculator.js"></script>
+</head>
+<body>
+    <div class="clearfix">
+        <!-- timer bb -->
+        <div id="b1" class="box">
+            <span class="title">Timer++</span><br>
+            <input id="h" class="input" type="text" name="inputhours" placeholder="h">
+            <input id="m" class="input" type="text" name="inputminutes" placeholder="m">
+            <input id="s" class="input" type="text" name="inputseconds" placeholder="s"><br>
+            <button id="buttontimer" class="button" type="button" value="send" onclick="start('timer')">Timer</button>
+            <button id="stopwatch" class="button" type="button" value="send" onclick="start('stopwatch')">Stopwatch</button>
+            <button id="buttontimerreset" class="button" type="button" value="send" onclick="start('reset')">Stop</button><br>
+            <span id="hours"></span>
+            <span id="minutes"></span> 
+            <span id="seconds"></span><br>
+            <span id="timerpercent"></span><br>
+            <span id="stopped"></span>
+            <div class="timerbarout" >
+                <div id="timerbar" class="timerbarin"></div>
+            </div>
+        </div>
+
+        <!-- noter bb -->
+        <div id="b2" class="box">
+            <span class="title">Noter++</span><br>
+            <input id="inputnoter" class="input" type="text" name="input" placeholder="...">
+            <button id="buttonnoter" class="button" type="button" value="send" onclick="save()">Save</button>
+            <br>
+            <span id="0" onclick="remove(0)"></span>
+            <span id="1" onclick="remove(1)"></span>
+            <span id="2" onclick="remove(2)"></span>
+            <span id="3" onclick="remove(3)"></span>
+            <span id="4" onclick="remove(4)"></span>
+            <span id="5" onclick="remove(5)"></span>
+            <span id="6" onclick="remove(6)"></span>
+            <span id="7" onclick="remove(7)"></span>
+            <span id="8" onclick="remove(8)"></span>
+            <span id="9" onclick="remove(9)"></span>
+            <span id="10" onclick="remove(10)"></span>
+        </div>
+
+        <!-- counter bb -->
+        <div id="b3" class="box">
+            <span class="title">Clickcounter++</span><br>
+            <input id="inputcounter" class="input" type="text" name="inputname" placeholder="...">
+            <button id="buttoncounter" class="button" type="button" value="send" onclick="setiCounter()">Start</button>
+            <button type="button" class="button" value="send" onclick="clickprev()">Back</button><br>
+            <div id="counterdiv" onclick="clicknext()">
+                <span id="numberstring"></span>
+                <span id="i-1"></span>
+                <span id="i"></span>
+            </div>
+        </div>
+
+        <!-- dicer bb -->
+        <div id="b4" class="box">
+            <span class="title">Dicer++</span><br>
+            <input id="inputmin" class="input" type="text" name="input" placeholder="min">
+            <input id="inputmax" class="input" type="text" name="input" placeholder="max">
+            <input id="inputquantity" class="input" type="text" name="input" placeholder="n">
+            <button id="buttondicer" class="button" type="button" value="send" onclick="go()">Go!</button>
+            <br>
+            <p id="pdicer" onclick="go()">Enter range and number of dicers.</p>
+        </div>
+
+        <!-- calcer bb -->
+        <div id="b5" class="box">
+            <span class="title">Calcer++</span><br>
+            <input id="inputcalcer" class="input" type="text" name="input" placeholder="Type calculation">
+            <button id="buttonCalc" class="button" type="button" value="send" onclick="calc()">Result</button>
+            <br>
+            <span id="1calc"></span>
+            <span id="2calc"></span>
+            <span id="3calc"></span>
+        </div>
+
+        <!-- color bb -->
+        <div id="b6" class="box">
+            <span class="title">Color++</span><br>
+            <input id="inputcolor" class="input" type="text" name="input" placeholder="Type calculation">
+            <button id="buttoncolor" class="button" type="button" value="send" onclick="colorChange()">Change</button>
+            <p id="pcolor"></p>
+            <div class="rgbbarout" onclick="hideBars()">
+                <div id="redbar" class="rgbbarin"></div>
+            </div>
+            <div class="rgbbarout"onclick="hideBars()">
+                <div id="greenbar" class="rgbbarin"></div>
+            </div>
+            <div class="rgbbarout"onclick="hideBars()">
+                <div id="bluebar" class="rgbbarin"></div>
+            </div>
+
+        </div>
+
+        <!-- bmi bb -->
+        <div id="b7" class="box">
+            <span class="title">BMI--</span><br>
+            <input id="inputweight" class="input" type="text" name="input" placeholder="weight">
+            <input id="inputhight" class="input" type="text" name="input" placeholder="hight">
+            <button id="buttonbmi" class="button" type="button" value="send" onclick="calcBMI()">Result</button>
+            <p id="pbmi"></p>
+        </div>
+
+        <!-- namer bb -->
+        <div id="b8" class="box">
+            <span class="title">Namer++</span><br>
+            <input id="inputnamer" class="input" type="text" name="input" placeholder="names">
+            <button id="buttonNamerSave" class="button" type="button" value="send" onclick="saveName()">Save</button>
+            <button id="buttonNamerChoose" class="button" type="button" value="send" onclick="chooseName()">Go!</button>
+            <p id="pnamer"></p>
+        </div>
+
+        <!-- river bb -->
+        <div id="b9" class="box" onclick="getLetter()">
+            <span class="title">River++</span><br>
+            <p align="center" id="priver"></p>
+        </div>
+
+        <!-- ipsumer bb -->
+        <div id="b10" class="box">
+            <span class="title">Ipsumer++</span><br>
+            <input id="inputIpsumer" class="input" type="text" name="input" placeholder="...">
+            <button id="buttonIpsumerCopy" class="button" type="button" value="send" onclick="generateIpsumer()">Copy to clipboard</button>
+            <p id="pipsumer">Enter number of letters you'd like to generate and copy.</p>
+        </div>
+
+        <!-- wordcounter bb -->
+        <div id="b11" class="box">
+            <span class="title">Wordcounter++</span><br>
+            <input id="inputwordcounter" class="input" type="text" name="input" placeholder="...">
+            <button id="buttonwordcounter" class="button" type="button" value="send" onclick="countWords()">Count</button>
+            <p id="pwordcounter">Insert your text and press enter.</p>
+        </div>
+
+        <!-- threer bb --> 
+        <div id="b12" class="box">
+                <span class="title">Threer++</span><br>
+                <input id="inputThreer100" class="threer input" type="text" name="input" placeholder="total quantity">
+                <input id="inputThreerX" class="threer input" type="text" name="input" placeholder="x quantity">
+                <input id="inputThreerX%" class="threer input" type="text" name="input" placeholder="x percent">
+
+                <button id="buttonthreer" class="threer button" type="button" value="send" onclick="ruleOfThree()">Count</button>
+
+                <button id="buttonthreerreset" class="threer button" type="button" value="send" onclick="resetThreer()">Reset</button>
+                <p id="1threer">Use the input elements to execute the "Rule of Three".</p>
+
+        </div>
+
+        <!-- lettercounter bb -->
+        <div id="b13" class="box">
+            <span class="title">Lettercounter++</span><br>
+            <input id="inputlettercounter" class="input" type="text" name="input" placeholder="...">
+            <button id="buttonlettercounter" class="button" type="button" value="send" onclick="countLetters()">Count</button>
+            <p id="plettercounter">Insert your text and press enter.</p>
+        </div>
+
+        <div id="b14" class="box">
+            <span id="span">0</span>
+            <!--Textfield to display the current string the result string. -->
+            <br>
+            <!-- buttons have an ID (for different color or invisibility). -->
+            <!-- number buttons call all the same function and give a specific value as parameter. -->
+            <button id="ID_C" 
+                onclick="delEverything()">C</button>
+            <button id="ID_("
+                onclick="addToString('(')">(</button>
+            <button id="ID_)"
+                onclick="addToString(')')">)</button>
+            <button id="ID_d"
+                onclick="delFrString()">Del</button><br>
+            <button id="ID_7"
+                onclick="addToString('7')">7</button>
+            <button id="ID_8"
+                onclick="addToString('8')">8</button>
+            <button id="ID_9"
+                onclick="addToString('9')">9</button>
+            <button id="ID_/"
+                onclick="addToString('/')">/</button><br>
+            <button id="ID_4"
+                onclick="addToString('4')">4</button>
+            <button id="ID_5"
+                onclick="addToString('5')">5</button>
+            <button id="ID_6"
+                onclick="addToString('6')">6</button>
+            <button id="ID_*"
+                onclick="addToString('*')">*</button><br>
+            <button id="ID_1"
+                onclick="addToString('1')">1</button>
+            <button id="ID_2"
+                onclick="addToString('2')">2</button>
+            <button id="ID_3"
+                onclick="addToString('3')">3</button>
+            <button id="ID_-"
+                onclick="addToString('-')">-</button><br>
+            <button id="ID_,"
+                onclick="addToString('.')">,</button>
+            <button id="ID_0"
+                onclick="addToString('0')">0</button>
+            <button id="ID_="
+                onclick="showResult()">=</button>
+            <button id="ID_+"
+                onclick="addToString('+')">+</button><br>
+            <button id="ID_ans"
+                onclick="reuseAns()">Ans</button>
+            <button id="ID_sqrt"
+                onclick="addToString('Math.sqrt(')">sqrt()</button>  
+                
+            <a href="Archiv/Calculator.html"
+                target="_blank">extern</a>
+            
+        </div>
+        <div id="b15" class="box"></div>
+        <div id="b16" class="box"></div>
+        <div id="b17" class="box"></div>
+        <div id="b18" class="box"></div>
+        <div id="b19" class="box"></div>
+        <div id="b20" class="box"></div>
+        <div id="b21" class="box"></div>
+
+    </div>
+
+</body>
+
+<script>
+    
+    // timer ss  
+   
+    var input = document.getElementById("h"); //Listener, der bei ENTER den Button auslöst. Kommt noch öfters vor.
+    input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttontimer").click();
+        }
+    });
+
+    var input = document.getElementById("m");
+    input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttontimer").click();
+        }
+    });
+
+    var input = document.getElementById("s");
+    input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttontimer").click();
+        }
+    });
+    
+    // noter ss  
+   
+    var input = document.getElementById("inputnoter"); //Listener, der bei ENTER den Button auslöst
+    input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonnoter").click();
+        }
+    });
+    
+    //counter ss  
+    
+    var input = document.getElementById("inputcounter"); //Listener, der bei ENTER den Button auslöst
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttoncounter").click();
+        }
+    });
+
+    // dicer ss  
+
+    var input = document.getElementById("inputmin"); //Listener, der bei ENTER den Button auslöst
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttondicer").click();
+        }
+    });
+
+    var input = document.getElementById("inputmax"); //Listener, der bei ENTER den Button auslöst
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttondicer").click();
+        }
+    });
+
+    var input = document.getElementById("inputquantity"); //Listener, der bei ENTER den Button auslöst
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttondicer").click();
+        }
+    });
+
+    // calcer ss 
+
+    var input = document.getElementById("inputcalcer"); //Listener, der bei ENTER den Button auslöst
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonCalc").click();
+        }
+    });
+
+    // color ss  
+    
+    colorBoxes(128, 167, 191);
+
+    var input = document.getElementById("inputcolor");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttoncolor").click();
+        }
+    });
+
+    // BMI ss
+
+    var input = document.getElementById("inputweight");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonbmi").click();
+        }
+    });
+
+    var input = document.getElementById("inputhight");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonbmi").click();
+        }
+    });
+
+    // namer ss
+    
+    var input = document.getElementById("inputnamer");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonNamerSave").click();
+        }
+    });
+
+    // river++  
+
+    // ipsumer ss
+
+    var input = document.getElementById("inputIpsumer");
+        input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonIpsumerCopy").click();
+        }
+    });
+
+    // wordcounter ss
+   
+    var input = document.getElementById("inputwordcounter");
+        input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonwordcounter").click();
+        }
+    });
+
+    // threer ss
+
+    var input = document.getElementById("inputThreer100");
+        input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonthreer").click();
+        }//dndndndfg
+    });
+
+    var input = document.getElementById("inputThreerX");
+        input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonthreer").click();
+        }
+    });
+
+    var input = document.getElementById("inputThreerX%");
+        input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonthreer").click();
+        }
+    });
+
+    function resetThreer(){
+        document.getElementById("inputThreerX%").value = ""; 
+        document.getElementById("inputThreer100").value = "";
+        document.getElementById("inputThreerX").value = "";
+    }
+
+    // lettercounter ss
+    
+    var input = document.getElementById("inputlettercounter");
+        input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("buttonlettercounter").click();
+        }
+    });
+
+</script>
+
+</html>
